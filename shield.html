@@ -3,54 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IXION Shield | Network Security</title>
+    <title>IXION Shield | Uw Digitale Bewaker</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
-        body, html { margin: 0; padding: 0; background-color: #020202; color: #ffffff; font-family: 'Inter', sans-serif; line-height: 1.8; }
+        body, html {
+            margin: 0; padding: 0;
+            background-color: #020202; color: #ffffff;
+            font-family: 'Inter', sans-serif; line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
         .ixion-red { color: #b22222; }
-        nav { padding: 20px 40px; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 100; display: flex; justify-content: space-between; box-sizing: border-box; border-bottom: 1px solid #111; }
-        nav a { color: #fff; text-decoration: none; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
-        .container { max-width: 900px; margin: auto; padding: 120px 20px 80px 20px; }
-        h1 { font-size: 3rem; font-weight: 200; letter-spacing: 12px; margin: 0; text-transform: uppercase; text-align: center; }
-        h2 { font-weight: 400; letter-spacing: 3px; border-bottom: 1px solid #222; padding-bottom: 10px; margin-top: 60px; text-transform: uppercase; font-size: 1.2rem; }
-        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-        .feature-box { background: #080808; padding: 30px; border: 1px solid #111; }
-        .feature-box h3 { font-size: 0.8rem; letter-spacing: 2px; color: #b22222; margin: 0 0 15px 0; text-transform: uppercase; }
-        .feature-box p { font-size: 0.85rem; color: #888; margin: 0; font-weight: 200; }
-        .footer { padding: 60px; text-align: center; color: #333; font-size: 0.7rem; letter-spacing: 2px; }
+
+        /* --- Navigatie --- */
+        nav {
+            padding: 20px 40px;
+            position: fixed; top: 0; width: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            z-index: 100; display: flex; justify-content: space-between;
+        }
+        nav a { color: #fff; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* --- Hero --- */
+        .product-hero {
+            height: 60vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            /* Gebruik een afbeelding van een zonnestelsel-verdediging of diepe ruimte */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,1)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            text-align: center;
+        }
+
+        /* --- Secties --- */
+        .container { max-width: 900px; margin: auto; padding: 80px 20px; }
+        h1 { font-size: 3.5rem; font-weight: 200; letter-spacing: 15px; margin: 0; }
+        h2 { font-weight: 400; letter-spacing: 4px; border-bottom: 1px solid #222; padding-bottom: 10px; margin-top: 60px; }
+
+        /* --- Fotogalerij Placeholder --- */
+        .gallery {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0;
+        }
+        .photo-placeholder {
+            background: #111; border: 1px solid #222;
+            aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;
+            color: #444; font-size: 0.8rem; text-transform: uppercase;
+        }
+
+        /* --- Specs Table --- */
+        .spec-list {
+            width: 100%; border-collapse: collapse; margin-top: 20px;
+        }
+        .spec-list td {
+            padding: 15px 0; border-bottom: 1px solid #111; font-weight: 200;
+        }
+        .spec-list td:first-child { color: #666; width: 30%; }
+
+        .btn-buy {
+            display: inline-block; background: #b22222; color: #fff;
+            padding: 15px 40px; text-decoration: none; font-weight: 600;
+            letter-spacing: 2px; border-radius: 4px; margin-top: 40px;
+            transition: 0.3s;
+        }
+        .btn-buy:hover { background: #d32f2f; }
+
+        .feature-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;
+        }
+        .feature-box {
+            background: #080808; padding: 25px; border: 1px solid #111;
+        }
+        .feature-box h3 { font-size: 0.9rem; letter-spacing: 2px; color: #b22222; margin-top: 0; }
     </style>
 </head>
 <body>
+
     <nav>
-        <a href="index.html">← Terug naar Home</a>
-        <span style="font-size: 0.7rem; letter-spacing: 2px; color: #666;">IXION DIGITAL LABS</span>
+        <a href="index.html">← TERUG NAAR HOME</a>
+        <span>IXION DIGITAL LABS</span>
     </nav>
-    <div class="container">
+
+    <header class="product-hero">
         <h1>SHIELD<span class="ixion-red">.</span></h1>
-        <p style="text-align: center; letter-spacing: 5px; color: #666; font-size: 0.8rem; margin-top: 10px;">PRIVACY ENGINEERING</p>
+        <p style="letter-spacing: 5px; color: #888;">YOUR NETWORK, YOUR RULES</p>
+    </header>
+
+    <div class="container">
         
-        <h2>De Verdedigingslinie</h2>
-        <p>In een tijdperk waarin data het nieuwe goud is, fungeert de IXION Shield als de wachter van uw digitale domein. Wij bouwen hardwarematige firewalls die trackers, advertenties en kwaadaardige verzoeken blokkeren op netwerkniveau, nog voordat ze uw apparaten bereiken.</p>
-        
+        <h2>WAAROM DE SHIELD?</h2>
+        <p>
+            In de digitale ruimte van vandaag bent u constant in beeld. Adverteerders, trackers en zelfs uw eigen provider kijken mee met elke klik. De <b>IXION Shield</b> is vernoemd naar de dwergplaneet aan de rand van ons stelsel: een verre bewaker die toeziet op wat er binnenkomt en wat eruit gaat.
+        </p>
+        <p>
+            Dit is geen standaard router van uw provider. De Shield is een krachtige firewall die <b>op netwerkniveau</b> dreigingen stopt voordat ze uw telefoon, tablet of smart-tv bereiken.
+        </p>
+
         <div class="feature-grid">
             <div class="feature-box">
-                <h3>Total Privacy</h3>
-                <p>Voorkom dat tech-giganten en adverteerders uw online gedrag profileren. Uw data blijft binnen uw muren.</p>
+                <h3>AD-BLOCKING</h3>
+                <p style="font-size: 0.85rem; color: #aaa;">Geen advertenties meer op uw apparaten. AdGuard Home blokkeert reclames nog voordat uw browser ze kan laden.</p>
             </div>
             <div class="feature-box">
-                <h3>Ad-Blocking</h3>
-                <p>Geniet van een schoon internet op elk apparaat in uw netwerk—inclusief smart-tv's en mobiele apps.</p>
+                <h3>TRACKER PREVENTIE</h3>
+                <p style="font-size: 0.85rem; color: #aaa;">Stop bedrijven die uw surfgedrag profileren. Uw privacy blijft van u.</p>
             </div>
             <div class="feature-box">
-                <h3>High-Speed Networking</h3>
-                <p>Gebouwd op 2.5Gbps Intel i226-V architectuur voor maximale doorvoer zonder latency.</p>
+                <h3>GEO-BLOCKING</h3>
+                <p style="font-size: 0.85rem; color: #aaa;">Blokkeer al het verkeer uit verdachte landen met één druk op de knop.</p>
             </div>
             <div class="feature-box">
-                <h3>Pre-Configured</h3>
-                <p>Plug & Play geleverd met geoptimaliseerde OPNsense en AdGuard Home configuraties vanuit ons lab.</p>
+                <h3>PLUG & PLAY</h3>
+                <p style="font-size: 0.85rem; color: #aaa;">Ik doe de configuratie. U steekt de kabel erin en geniet direct van een schoon internet.</p>
             </div>
         </div>
+
+        <h2>DE HARDWARE (THE LABS)</h2>
+        <div class="gallery">
+            <div class="photo-placeholder">Foto: Topton N100 Front</div>
+            <div class="photo-placeholder">Foto: 4x 2.5G Intel Poorten</div>
+            <div class="photo-placeholder">Foto: Interface OPNsense</div>
+            <div class="photo-placeholder">Foto: AdGuard Dashboard</div>
+        </div>
+        <p>
+            Voor de Shield gebruiken we alleen hardware die 'future-proof' is. De <b>Topton N100</b> architectuur biedt de perfecte balans tussen brute rekenkracht en een laag stroomverbruik.
+        </p>
+
+        <h2>SPECIFICATIES</h2>
+        <table class="spec-list">
+            <tr><td>Processor</td><td>Intel N100 (Fanless, Quad Core)</td></tr>
+            <tr><td>Netwerk</td><td>4x Intel i226-V 2.5Gbps Ethernet</td></tr>
+            <tr><td>Geheugen</td><td>8GB / 16GB RAM (Configuratie afhankelijk)</td></tr>
+            <tr><td>Software</td><td>Pre-installed OPNsense & AdGuard Home</td></tr>
+            <li><b>Beveiliging:</b> AES-NI ondersteuning voor razendsnelle VPN-versleuteling.</li>
+        </table>
+
+        <h2>MIJN BELOFTE</h2>
+        <p>
+            Netwerkbeveiliging is vaak ingewikkeld. De Shield maakt het simpel. Ik configureer elke unit in mijn <b>IXION Lab</b> zodat u dat niet hoeft te doen. U krijgt een apparaat dat direct klaar is voor gebruik, inclusief een korte handleiding om uw privacy-instellingen te beheren.
+        </p>
+
+        <div style="text-align: center;">
+            <a href="HIER_JOUW_MARKTPLAATS_LINK_SHIELD" class="btn-buy">BEKIJK OP MARKTPLAATS</a>
+        </div>
     </div>
-    <div class="footer">© 2026 IXION DIGITAL | SECURING THE FRONTIER</div>
+
+    <footer style="padding: 40px; text-align: center; color: #333; font-size: 0.7rem;">
+        IXION DIGITAL | EXPLORING THE LIMITS OF AUDIO & PRIVACY
+    </footer>
+
 </body>
 </html>
