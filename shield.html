@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shield | I X I O N  D I G I T A L</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#b22222;
+      --border:#1a1a1a;
+    }
+
+    html, body{
+      margin:0;
+      padding:0;
+      height:100%;
+      background:transparent;
+      color:#fff;
+      font-family:'Inter', sans-serif;
+      line-height:1.8;
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility;
+    }
+
+    html{ background:#000; }
+
+    .ixion-red{ color:var(--accent); }
+
+    .bg-overlay{
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:
+        linear-gradient(rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.84) 100%),
+        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1952&auto=format&fit=crop&v=2');
+      background-size:cover;
+      background-position:center bottom;
+      z-index:-1;
+    }
+
+    /* ---- NAV (consistent) ---- */
+    nav{
+      padding:20px 40px;
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(0,0,0,0.42);
+      backdrop-filter:blur(15px);
+      -webkit-backdrop-filter:blur(15px);
+      z-index:100;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      box-sizing:border-box;
+      gap:14px;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      font-size:0.7rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .ixion-brand{
+      display:inline-flex;
+      align-items:center;
+      white-space:nowrap;
+      text-transform:uppercase;
+      user-select:none;
+    }
+    .ixion-letter{
+      letter-spacing:0.34em;
+      font-weight:200;
+      color:#cfcfcf;
+      font-size:0.7rem;
+    }
+    .ixion-separator{ display:inline-block; width:0.65em; }
+    .ixion-digital{
+      letter-spacing:0.20em;
+      font-weight:200;
+      color:#777;
+      font-size:0.7rem;
+    }
+
+    /* ---- CONTENT ---- */
+    .container{
+      max-width:900px;
+      margin:auto;
+      padding:150px 20px 80px 20px;
+      position:relative;
+      z-index:1;
+      box-sizing:border-box;
+    }
+
+    h1{
+      font-size:4rem;
+      font-weight:200;
+      letter-spacing:15px;
+      margin:0;
+      text-transform:uppercase;
+      text-align:center;
+      text-shadow:0 0 40px rgba(0,0,0,0.9);
+    }
+
+    .kicker{
+      text-align:center;
+      letter-spacing:8px;
+      color:var(--accent);
+      font-size:0.8rem;
+      margin-top:10px;
+      font-weight:600;
+      text-transform:uppercase;
+    }
+
+    .description{
+      font-size:1.1rem;
+      color:#eee;
+      text-align:center;
+      max-width:720px;
+      margin:18px auto 54px auto;
+      font-weight:200;
+      text-shadow:0 2px 15px rgba(0,0,0,0.8);
+    }
+
+    h2{
+      font-weight:400;
+      letter-spacing:3px;
+      border-bottom:1px solid rgba(178,34,34,0.5);
+      padding-bottom:10px;
+      margin-top:60px;
+      text-transform:uppercase;
+      font-size:1.2rem;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:40px;
+    }
+
+    .feature-box{
+      background:rgba(10,10,10,0.42);
+      padding:35px;
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      border-radius:12px;
+      box-sizing:border-box;
+    }
+
+    .feature-box h3{
+      font-size:0.8rem;
+      letter-spacing:2px;
+      color:var(--accent);
+      margin:0 0 12px 0;
+      text-transform:uppercase;
+      font-weight:600;
+    }
+
+    .feature-box p{
+      font-size:0.92rem;
+      color:#ccc;
+      margin:0;
+      font-weight:200;
+      line-height:1.65;
+    }
+
+    /* ---- FOOTER (consistent) ---- */
+    .footer{
+      background:rgba(0,0,0,0.84);
+      border-top:1px solid rgba(255,255,255,0.05);
+      padding:56px 20px 46px 20px;
+      position:relative;
+      z-index:1;
+      box-sizing:border-box;
+    }
+
+    .footer-inner{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:18px;
+    }
+
+    .footer-text{
+      max-width:720px;
+      font-size:0.92rem;
+      color:#cfcfcf;
+      line-height:1.8;
+      font-weight:200;
+      margin:0;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:center;
+      font-size:0.75rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    .footer-links a{
+      color:#9a9a9a;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      padding-bottom:2px;
+    }
+    .footer-links a:hover{ border-bottom-color:rgba(255,255,255,0.35); }
+
+    .footer-divider{
+      width:140px;
+      height:1px;
+      background:rgba(255,255,255,0.06);
+      margin-top:6px;
+    }
+
+    .copyright{
+      font-size:0.7rem;
+      color:#444;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin:0;
+    }
+
+    /* ---- MOBILE ---- */
+    @media (max-width:768px){
+      .bg-overlay{ background-position:center 70%; }
+      nav{ padding:14px 16px; }
+      .container{ padding-top:105px; padding-left:16px; padding-right:16px; }
+
+      .ixion-letter{ letter-spacing:0.28em; font-size:0.65rem; }
+      .ixion-separator{ width:0.55em; }
+      .ixion-digital{ letter-spacing:0.18em; font-size:0.65rem; }
+
+      h1{ font-size:2.2rem; letter-spacing:8px; }
+      .kicker{ letter-spacing:5px; font-size:0.72rem; }
+      .feature-grid{ grid-template-columns:1fr; gap:14px; }
+      .feature-box{ padding:22px; }
+
+      .footer{ padding:42px 18px 38px 18px; }
+    }
+
+    @media (max-width:420px){
+      .ixion-brand{ display:none; }
+      h1{ font-size:1.9rem; letter-spacing:7px; }
+      .description{ font-size:1.0rem; text-align:left; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-overlay"></div>
+
+  <nav>
+    <a href="index.html">← Terug naar Home</a>
+
+    <span class="ixion-brand" aria-label="I X I O N  D I G I T A L">
+      <span class="ixion-letter">I</span>
+      <span class="ixion-letter">X</span>
+      <span class="ixion-letter ixion-red">I</span>
+      <span class="ixion-letter">O</span>
+      <span class="ixion-letter">N</span>
+      <span class="ixion-separator"></span>
+      <span class="ixion-digital">D I G I T A L</span>
+    </span>
+  </nav>
+
+  <div class="container">
+    <h1>SHIELD<span class="ixion-red">.</span></h1>
+    <p class="kicker">PRIVACY ENGINEERING</p>
+
+    <p class="description">
+      De ultieme verdedigingslinie voor uw digitale thuis. Shield filtert, beschermt en anonimiseert netwerkverkeer op hardware-niveau.
+    </p>
+
+    <h2>Netwerk Defensie</h2>
+    <p>
+      Trackers, advertenties en kwaadaardige verzoeken worden geblokkeerd nog vóórdat ze uw apparaten bereiken.
+      Ontworpen voor rust, niet voor complexiteit.
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-box">
+        <h3>Total Privacy</h3>
+        <p>Minimaliseer profilering en tracking. Uw verkeer blijft van u.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Ad-Blocking</h3>
+        <p>Een schoon internet op elk apparaat in uw netwerk — inclusief smart-tv’s en apps.</p>
+      </div>
+      <div class="feature-box">
+        <h3>High-Speed Networking</h3>
+        <p>Ontworpen voor hoge doorvoer met lage latency (hardware-afhankelijk per unit).</p>
+      </div>
+      <div class="feature-box">
+        <h3>Pre-Configured</h3>
+        <p>Plug &amp; Play met een minimale, gecontroleerde configuratie en rustige oplevering.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-text">
+        Vernoemd naar de rode dwergplaneet <span class="ixion-red" style="font-weight:400;">28978 Ixion</span>.
+        Technologie, geperfectioneerd in stilte.
+      </p>
+
+      <div class="footer-links">
+        <a href="model101.html">Model101</a>
+        <a href="shield.html">Shield</a>
+        <a href="remote-access.html">Remote Access</a>
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="copyright">© 2026 I X I O N  D I G I T A L | TRANSMISSION PENDING</p>
+    </div>
+  </footer>
+</body>
+</html>
