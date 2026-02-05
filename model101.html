@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model101 | I X I O N  D I G I T A L</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#020202;
+      --fg:#ffffff;
+      --muted:#bdbdbd;
+      --muted2:#8a8a8a;
+      --border:#1a1a1a;
+      --accent:#b22222;
+      --panel: rgba(10,10,10,0.62);
+      --panel2: rgba(0,0,0,0.25);
+    }
+
+    html, body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:'Inter', sans-serif;
+      line-height:1.8;
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+
+    .ixion-red{ color:var(--accent); }
+
+    /* ---- NAV (consistent across site) ---- */
+    nav{
+      padding:20px 40px;
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(0,0,0,0.82);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      z-index:100;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid #111;
+      box-sizing:border-box;
+      gap:14px;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      font-size:0.7rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .ixion-brand{
+      display:inline-flex;
+      align-items:center;
+      white-space:nowrap;
+      text-transform:uppercase;
+      user-select:none;
+    }
+    .ixion-letter{
+      letter-spacing:0.34em;
+      font-weight:200;
+      color:#cfcfcf;
+      font-size:0.7rem;
+    }
+    .ixion-separator{ display:inline-block; width:0.65em; }
+    .ixion-digital{
+      letter-spacing:0.20em;
+      font-weight:200;
+      color:#777;
+      font-size:0.7rem;
+    }
+
+    /* ---- HERO (Model101-specific) ---- */
+    .hero{
+      padding:140px 20px 54px 20px;
+      box-sizing:border-box;
+      text-align:center;
+      background:
+        radial-gradient(circle at 50% 25%, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0) 55%),
+        radial-gradient(circle at 50% 85%, rgba(178,34,34,0.06) 0%, rgba(0,0,0,0) 55%),
+        radial-gradient(circle at center, #111 0%, #000 80%);
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+
+    .hero-inner{
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    .badge{
+      display:inline-block;
+      font-size:0.65rem;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:var(--accent);
+      border:1px solid rgba(178,34,34,0.7);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    h1{
+      margin:0;
+      font-size:3.1rem;
+      font-weight:200;
+      letter-spacing:12px;
+      text-transform:uppercase;
+      line-height:1.12;
+      text-shadow:0 0 40px rgba(255,255,255,0.25);
+    }
+
+    .sub{
+      margin-top:14px;
+      font-size:0.85rem;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      color:#666;
+    }
+
+    .lead{
+      margin:26px auto 0 auto;
+      max-width:860px;
+      color:#d6d6d6;
+      font-weight:200;
+      line-height:1.9;
+      font-size:1.02rem;
+    }
+
+    .hero-grid{
+      margin:36px auto 0 auto;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:14px;
+      padding:0 10px;
+      box-sizing:border-box;
+    }
+
+    .pill{
+      border:1px solid rgba(255,255,255,0.06);
+      background:rgba(0,0,0,0.30);
+      border-radius:14px;
+      padding:14px 14px;
+      text-align:left;
+      box-sizing:border-box;
+    }
+
+    .pill h3{
+      margin:0 0 6px 0;
+      font-size:0.75rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--accent);
+      font-weight:600;
+    }
+
+    .pill p{
+      margin:0;
+      color:#c9c9c9;
+      font-weight:200;
+      font-size:0.92rem;
+      line-height:1.6;
+    }
+
+    /* ---- CONTENT ---- */
+    .container{
+      max-width:980px;
+      margin:0 auto;
+      padding:54px 20px 84px 20px;
+      box-sizing:border-box;
+    }
+
+    .section{
+      margin-top:44px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:var(--panel);
+      padding:28px;
+      box-sizing:border-box;
+    }
+
+    .section-title{
+      margin:0;
+      font-weight:400;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      font-size:1.05rem;
+      color:#f0f0f0;
+      border-bottom:1px solid rgba(255,255,255,0.07);
+      padding-bottom:10px;
+    }
+
+    .section p{
+      margin:16px 0 0 0;
+      color:#cfcfcf;
+      font-weight:200;
+      line-height:1.85;
+    }
+
+    .two-col{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .card{
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px;
+      background:var(--panel2);
+      padding:16px;
+      box-sizing:border-box;
+    }
+
+    .card h4{
+      margin:0 0 6px 0;
+      font-size:0.8rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--accent);
+      font-weight:600;
+    }
+
+    .card p{
+      margin:0;
+      color:#c9c9c9;
+      font-weight:200;
+      font-size:0.95rem;
+      line-height:1.65;
+    }
+
+    .spec-table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:18px;
+    }
+
+    .spec-table td{
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      vertical-align:top;
+      font-weight:200;
+      font-size:0.95rem;
+      color:#d0d0d0;
+    }
+    .spec-table tr:last-child td{ border-bottom:none; }
+
+    .spec-table td:first-child{
+      width:36%;
+      color:#777;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      padding-right:16px;
+    }
+
+    .status{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      font-size:0.65rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      color:#cfcfcf;
+      background:rgba(0,0,0,0.25);
+    }
+
+    .tag-accent{
+      border-color:rgba(178,34,34,0.55);
+      color:#f0d0d0;
+    }
+
+    /* ---- FOOTER (consistent across site) ---- */
+    .footer{
+      background:#050505;
+      border-top:1px solid var(--border);
+      padding:56px 20px 46px 20px;
+      box-sizing:border-box;
+    }
+
+    .footer-inner{
+      max-width:980px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:18px;
+    }
+
+    .footer-text{
+      max-width:720px;
+      font-size:0.92rem;
+      color:#cfcfcf;
+      line-height:1.8;
+      font-weight:200;
+      margin:0;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:center;
+      font-size:0.75rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    .footer-links a{
+      color:#9a9a9a;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      padding-bottom:2px;
+    }
+    .footer-links a:hover{ border-bottom-color:rgba(255,255,255,0.35); }
+
+    .footer-divider{
+      width:140px;
+      height:1px;
+      background:rgba(255,255,255,0.06);
+      margin-top:6px;
+    }
+
+    .copyright{
+      font-size:0.7rem;
+      color:#444;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin:0;
+    }
+
+    /* ---- MOBILE ---- */
+    @media (max-width:768px){
+      nav{ padding:14px 16px; }
+      .ixion-letter{ letter-spacing:0.28em; font-size:0.65rem; }
+      .ixion-separator{ width:0.55em; }
+      .ixion-digital{ letter-spacing:0.18em; font-size:0.65rem; }
+
+      .hero{ padding-top:112px; padding-left:16px; padding-right:16px; padding-bottom:44px; }
+      h1{ font-size:1.95rem; letter-spacing:6px; }
+      .sub{ font-size:0.72rem; letter-spacing:3px; }
+      .lead{ text-align:left; font-size:0.98rem; }
+
+      .hero-grid{ grid-template-columns:1fr; padding:0; }
+      .container{ padding-left:16px; padding-right:16px; padding-top:42px; }
+      .section{ padding:20px; }
+      .two-col{ grid-template-columns:1fr; }
+
+      .spec-table td{ font-size:0.88rem; }
+      .spec-table td:first-child{ width:46%; }
+
+      .footer{ padding:42px 18px 38px 18px; }
+    }
+
+    @media (max-width:420px){
+      .ixion-brand{ display:none; }
+      h1{ font-size:1.7rem; letter-spacing:5px; }
+      .badge{ letter-spacing:2px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">← Terug naar Home</a>
+
+    <span class="ixion-brand" aria-label="I X I O N  D I G I T A L">
+      <span class="ixion-letter">I</span>
+      <span class="ixion-letter">X</span>
+      <span class="ixion-letter ixion-red">I</span>
+      <span class="ixion-letter">O</span>
+      <span class="ixion-letter">N</span>
+      <span class="ixion-separator"></span>
+      <span class="ixion-digital">D I G I T A L</span>
+    </span>
+  </nav>
+
+  <!-- MODEL101-SPECIFIC HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="badge">PROJECT IN CALIBRATION</div>
+      <h1>MODEL<span class="ixion-red">101</span></h1>
+      <div class="sub">FANLESS AUDIO APPLIANCE</div>
+
+      <p class="lead">
+        Model101 is gebouwd als stille kern voor Roon: voorspelbaar gedrag, 24/7 inzetbaar en ontworpen om te verdwijnen uit het dagelijks gebruik.
+        Geen ventilatoren. Geen onderhoud. Alleen muziek.
+      </p>
+
+      <div class="hero-grid">
+        <div class="pill">
+          <h3>Stilte</h3>
+          <p>Volledig fanless ontwerp. Geen bewegende delen die de luisterruimte beïnvloeden.</p>
+        </div>
+        <div class="pill">
+          <h3>Stabiliteit</h3>
+          <p>Ontworpen als appliance: automatisch herstel na stroomuitval, minimale interactie.</p>
+        </div>
+        <div class="pill">
+          <h3>Focus</h3>
+          <p>Eén primaire functie: Roon Core op Roon ROCK, zonder extra platformlagen.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2 class="section-title">Wat is Model101</h2>
+      <p>
+        Een fanless Roon Core appliance die aanvoelt als een vast onderdeel van het audiosysteem.
+        Bedoeld voor mensen die wél kwaliteit willen, maar níet “een computer in de kast”.
+        Model101 draait stil en voorspelbaar, met één duidelijke rol in de keten.
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <h4>Voor wie</h4>
+          <p>Roon-gebruikers die stabiliteit willen, en geen zin hebben in systeembeheer, ventilatoren of onduidelijk gedrag.</p>
+        </div>
+        <div class="card">
+          <h4>Niet voor</h4>
+          <p>Wie een all-in-one home server zoekt met extra diensten, containers en “alles erop en eraan”.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Ontwerpprincipes</h2>
+      <div class="two-col">
+        <div class="card">
+          <h4>Appliance-OS</h4>
+          <p>Roon ROCK wordt gebruikt als dedicated besturingssysteem, zonder desktoplaag.</p>
+        </div>
+        <div class="card">
+          <h4>Headless mogelijk</h4>
+          <p>Geen scherm nodig in normaal gebruik. Bediening verloopt via Roon-apps op het netwerk.</p>
+        </div>
+        <div class="card">
+          <h4>Herstelgedrag</h4>
+          <p>Na reboot/stroomuitval komt het systeem terug zonder handmatige stappen.</p>
+        </div>
+        <div class="card">
+          <h4>Geen infrastructuur</h4>
+          <p>Model101 is een product, geen backbone: complexiteit blijft buiten de unit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Specificaties</h2>
+
+      <table class="spec-table">
+        <tr><td>Behuizing</td><td>Akasa Maxwell Pro Plus (massief aluminium, fanless)</td></tr>
+        <tr><td>Besturingssysteem</td><td>Roon ROCK (officieel Roon OS)</td></tr>
+        <tr><td>Processor</td><td>Intel (fanless, thermisch voorspelbaar)</td></tr>
+        <tr><td>Geheugen</td><td>16 GB DDR4</td></tr>
+        <tr><td>Opslag</td><td>NVMe SSD</td></tr>
+        <tr><td>Voeding</td><td>Low-noise externe adapter</td></tr>
+        <tr><td>Rol</td><td>Roon Core appliance (stabiel, 24/7)</td></tr>
+      </table>
+
+      <div class="status">
+        <span class="tag tag-accent">Prototype</span>
+        <span class="tag">Thermals: te valideren</span>
+        <span class="tag">QA: in opbouw</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-text">
+        Vernoemd naar de rode dwergplaneet <span class="ixion-red" style="font-weight:400;">28978 Ixion</span>.
+        Technologie, ontworpen om te verdwijnen — zodat rust en kwaliteit overblijven.
+      </p>
+
+      <div class="footer-links">
+        <a href="model101.html">Model101</a>
+        <a href="shield.html">Shield</a>
+        <a href="remote-access.html">Remote Access</a>
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="copyright">© 2026 I X I O N  D I G I T A L | TRANSMISSION PENDING</p>
+    </div>
+  </footer>
+</body>
+</html>
+
