@@ -152,7 +152,7 @@
 
     .grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:repeat(3, 1fr);
       gap:40px;
     }
 
@@ -165,6 +165,7 @@
       flex-direction:column;
       align-items:flex-start;
       box-sizing:border-box;
+      min-height: 260px;
     }
 
     .coming-soon-badge{
@@ -216,6 +217,7 @@
       display:inline-block;
       border-radius:10px;
       box-sizing:border-box;
+      margin-top:auto;
     }
     .btn-outline:hover{ background:#fff; color:#000; }
 
@@ -357,6 +359,10 @@
     }
 
     /* ---- MOBILE ---- */
+    @media (max-width:1024px){
+      .grid{ grid-template-columns:1fr 1fr; gap:18px; }
+    }
+
     @media (max-width:768px){
       .status-tag{ font-size:0.65rem; letter-spacing:3px; margin-bottom:12px; }
       h1{ font-size:2.0rem; }
@@ -429,14 +435,22 @@
         <p>Network privacy, engineered in silence.</p>
         <a href="shield.html" class="btn-outline">ONTDEK MEER</a>
       </div>
+
+      <div class="card">
+        <div class="coming-soon-badge">COMING SOON</div>
+        <div class="lab-label">FUTURE CONCEPT</div>
+        <h2>Vault</h2>
+        <p>Local privacy storage. Zero cloud. Built for calm, predictable ownership.</p>
+        <a href="vault.html" class="btn-outline">ONTDEK MEER</a>
+      </div>
     </div>
 
     <section class="anchor" aria-label="Op aanvraag">
       <p class="anchor-kicker">Op aanvraag</p>
-      <p class="anchor-title">Wat we bouwen, en waarom</p>
+      <p class="anchor-title">Wat we bouwen — en waarom</p>
       <p class="anchor-desc">
         I X I O N bouwt systemen die verdwijnen uit het dagelijks gebruik: stil, stabiel en voorspelbaar.
-        Geen feature-jacht, geen ruis, één helder doel per apparaat.
+        Geen feature-jacht, geen ruis — één helder doel per apparaat.
       </p>
 
       <ul class="anchor-grid">
@@ -449,12 +463,12 @@
           <p>Netwerkbescherming en ad-blocking op hardware-niveau. <a href="shield.html">Shield</a></p>
         </li>
         <li class="anchor-item">
-          <h3>Remote Access</h3>
-          <p>Veilige toegang op afstand voor specifieke systemen, zonder cloud of accounts. <a href="remote-access.html">Meer informatie</a></p>
+          <h3>Local Storage</h3>
+          <p>Een stille opslagkluis: lokaal, simpel en zonder cloud. <a href="vault.html">Vault</a></p>
         </li>
         <li class="anchor-item">
-          <h3>Proces</h3>
-          <p>Alles wordt opgebouwd als geheel: configuratie, validatie en rustige oplevering.</p>
+          <h3>Remote Access</h3>
+          <p>Veilige toegang op afstand voor specifieke systemen, zonder cloud of accounts. <a href="remote-access.html">Meer informatie</a></p>
         </li>
       </ul>
     </section>
@@ -464,12 +478,13 @@
     <div class="footer-inner">
       <p class="footer-text">
         Vernoemd naar de rode dwergplaneet <span class="ixion-red" style="font-weight:400;">28978 Ixion</span>.
-        Technologie, ontworpen om te verdwijnen, zodat rust en kwaliteit overblijven.
+        Technologie, ontworpen om te verdwijnen — zodat rust en kwaliteit overblijven.
       </p>
 
       <div class="footer-links">
         <a href="model101.html">Model101</a>
         <a href="shield.html">Shield</a>
+        <a href="vault.html">Vault</a>
         <a href="remote-access.html">Remote Access</a>
       </div>
 
@@ -479,4 +494,3 @@
   </footer>
 </body>
 </html>
-
