@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Remote Access | I X I O N  D I G I T A L</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -14,6 +14,8 @@
       --muted:#bdbdbd;
       --border:#1a1a1a;
       --accent:#b22222;
+      --panel: rgba(10,10,10,0.62);
+      --panel2: rgba(0,0,0,0.25);
     }
 
     html, body{
@@ -25,11 +27,12 @@
       line-height:1.8;
       -webkit-text-size-adjust:100%;
       text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
 
     .ixion-red{ color:var(--accent); }
 
-    /* ---- NAV (consistent) ---- */
+    /* NAV */
     nav{
       padding:20px 40px;
       position:fixed;
@@ -77,7 +80,7 @@
       font-size:0.7rem;
     }
 
-    /* ---- CONTENT ---- */
+    /* CONTENT */
     .container{
       max-width:920px;
       margin:0 auto;
@@ -92,6 +95,7 @@
       letter-spacing:8px;
       text-transform:uppercase;
       text-align:center;
+      text-shadow:0 0 40px rgba(255,255,255,0.10);
     }
 
     .kicker{
@@ -105,7 +109,7 @@
     }
 
     .lead{
-      max-width:760px;
+      max-width:780px;
       margin:22px auto 0 auto;
       color:#d7d7d7;
       font-weight:200;
@@ -117,7 +121,7 @@
       margin-top:42px;
       border:1px solid var(--border);
       border-radius:12px;
-      background:rgba(10,10,10,0.6);
+      background:var(--panel);
       padding:28px;
       box-sizing:border-box;
     }
@@ -143,7 +147,7 @@
     .card{
       border:1px solid rgba(255,255,255,0.06);
       border-radius:12px;
-      background:rgba(0,0,0,0.25);
+      background:var(--panel2);
       padding:16px;
       box-sizing:border-box;
     }
@@ -171,6 +175,7 @@
       padding:14px 0 14px 18px;
       color:#d0d0d0;
       font-weight:200;
+      background:rgba(0,0,0,0.20);
     }
 
     .note{
@@ -188,7 +193,7 @@
     }
     .mail:hover{ border-bottom-color:rgba(255,255,255,0.45); }
 
-    /* ---- FOOTER (consistent links; mail only as text above) ---- */
+    /* FOOTER */
     .footer{
       background:#050505;
       border-top:1px solid var(--border);
@@ -248,7 +253,6 @@
       margin:0;
     }
 
-    /* ---- MOBILE ---- */
     @media (max-width:768px){
       nav{ padding:14px 16px; }
       .container{ padding-top:102px; padding-left:16px; padding-right:16px; }
@@ -261,6 +265,7 @@
       .kicker{ letter-spacing:3px; font-size:0.68rem; }
       .panel{ padding:20px; }
       .grid{ grid-template-columns:1fr; }
+      .lead{ text-align:left; }
 
       .footer{ padding:42px 18px 38px 18px; }
     }
@@ -268,7 +273,6 @@
     @media (max-width:420px){
       .ixion-brand{ display:none; }
       h1{ font-size:1.6rem; letter-spacing:5px; }
-      .lead{ text-align:left; }
     }
   </style>
 </head>
@@ -293,53 +297,52 @@
     <div class="kicker">Op aanvraag • Geen cloud • Geen accounts</div>
 
     <p class="lead">
-      Remote access is bedoeld voor één ding: veilige, voorspelbare toegang tot een specifiek systeem,
-      zonder poorten open te zetten en zonder afhankelijk te zijn van accounts of abonnementen.
-      Dit is een gecontroleerde oplevering binnen vaste grenzen.
+      Remote access is bedoeld voor één ding: veilige toegang op afstand tot een afgebakend systeem.
+      Zonder poorten open te zetten en zonder afhankelijk te zijn van accounts of abonnementen.
     </p>
 
     <div class="panel">
-      <h2 class="section-title">Wat dit wél is</h2>
+      <h2 class="section-title">Wat dit wel is</h2>
 
       <div class="grid">
         <div class="card">
           <h3>Eenmalige inrichting</h3>
-          <p>Opgezet als vaste configuratie: stabiel, herhaalbaar en bedoeld om te blijven werken.</p>
+          <p>Een vaste configuratie die bedoeld is om rustig te blijven werken.</p>
         </div>
         <div class="card">
           <h3>Per apparaat afgebakend</h3>
-          <p>De toegang geldt voor één specifiek systeem (bijv. audio server of appliance).</p>
+          <p>De toegang geldt voor één specifiek systeem, niet voor alles in het netwerk.</p>
         </div>
         <div class="card">
-          <h3>Eigen sleutel per cliënt</h3>
-          <p>Elke cliënt krijgt een eigen sleutelset. Intrekken kan zonder herinstallatie.</p>
+          <h3>Eigen sleutel per klant</h3>
+          <p>Elke klant krijgt een eigen sleutelset. Intrekken kan zonder herinstallatie.</p>
         </div>
         <div class="card">
           <h3>Rustige oplevering</h3>
-          <p>Korte uitleg + test, zodat het daarna stil kan blijven.</p>
+          <p>Korte uitleg en test, zodat het daarna stil kan blijven.</p>
         </div>
       </div>
 
       <div class="callout">
-        Remote access wordt alleen ingericht voor systemen die duidelijk af te bakenen zijn.
-        Als een opstelling te onvoorspelbaar is, doen we het niet.
+        Remote access wordt alleen ingericht voor systemen die voorspelbaar zijn.
+        Als een situatie te onduidelijk is, doen we het niet.
       </div>
 
-      <h2 class="section-title" style="margin-top:28px;">Wat dit níét is</h2>
+      <h2 class="section-title" style="margin-top:28px;">Wat dit niet is</h2>
 
       <div class="grid">
         <div class="card">
-          <h3>Geen helpdesk</h3>
-          <p>Geen doorlopende supportverplichting, geen “we lossen alles op” belofte.</p>
+          <h3>Geen helpdesk belofte</h3>
+          <p>Geen doorlopende supportverplichting en geen open einde traject.</p>
         </div>
         <div class="card">
-          <h3>Geen router-project</h3>
-          <p>Geen herbouw van thuisnetwerken of complexe ISP-problemen als traject.</p>
+          <h3>Geen router project</h3>
+          <p>Geen volledige verbouwing van thuisnetwerken of complexe isp problemen.</p>
         </div>
       </div>
 
       <p class="note">
-        <strong style="font-weight:600;color:#e3e3e3;">Info via mail:</strong>
+        Info via mail:
         <a class="mail" href="mailto:ixion.digital@ziggo.nl">ixion.digital@ziggo.nl</a>
       </p>
     </div>
@@ -348,12 +351,14 @@
   <footer class="footer">
     <div class="footer-inner">
       <p class="footer-text">
-        Remote access wordt alleen ingericht binnen duidelijke grenzen, met focus op stabiliteit en voorspelbaar gedrag.
+        Vernoemd naar de rode dwergplaneet <span class="ixion-red" style="font-weight:400;">28978 Ixion</span>.
+        Technologie, ontworpen om te verdwijnen, zodat rust en kwaliteit overblijven.
       </p>
 
       <div class="footer-links">
-        <a href="model101.html">Model101</a>
+        <a href="aether.html">Aether</a>
         <a href="shield.html">Shield</a>
+        <a href="vault.html">Vault</a>
         <a href="remote-access.html">Remote Access</a>
       </div>
 
