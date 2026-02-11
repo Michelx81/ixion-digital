@@ -3,273 +3,350 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IXION Vault | Local Privacy Storage</title>
+  <title>Vault | I X I O N  D I G I T A L</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#020202;
-      --panel:rgba(15,15,15,.72);
-      --line:rgba(255,255,255,.08);
-      --muted:#9a9a9a;
-      --text:#ffffff;
-      --ixion-red:#b22222;
+      --fg:#ffffff;
+      --muted:#bdbdbd;
+      --border:#1a1a1a;
+      --accent:#b22222;
+      --panel: rgba(10,10,10,0.62);
+      --panel2: rgba(0,0,0,0.25);
     }
 
     html, body{
-      margin:0; padding:0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.8;
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:'Inter', sans-serif;
+      line-height:1.8;
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility;
       overflow-x:hidden;
-      scroll-behavior:smooth;
     }
 
-    /* Subtle moving stars */
+    /* sterren */
     .stars{
-      position: fixed;
-      inset: 0;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      opacity: 0.28;
-      animation: spaceMove 170s linear infinite;
+      position:fixed;
+      inset:0;
+      background:url('https://www.transparenttextures.com/patterns/stardust.png');
+      opacity:0.28;
+      animation:spaceMove 170s linear infinite;
       pointer-events:none;
-      z-index: 0;
+      z-index:0;
     }
     @keyframes spaceMove{
-      from{ background-position: 0 0; }
-      to{ background-position: 1200px 1200px; }
+      from{ background-position:0 0; }
+      to{ background-position:1200px 1200px; }
     }
 
-    /* Gradient depth */
     .depth{
-      position: fixed;
-      inset: 0;
+      position:fixed;
+      inset:0;
       background:
         radial-gradient(circle at 50% 20%, rgba(255,255,255,.06) 0%, rgba(0,0,0,0) 55%),
         linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.65) 70%, rgba(0,0,0,0.95) 100%);
       pointer-events:none;
-      z-index: 1;
+      z-index:1;
     }
 
-    /* Brand wordmark */
-    .ixion-brand{
-      display:inline-flex;
-      align-items:baseline;
-      gap: 18px; /* extra space before DIGITAL */
-      user-select:none;
-      white-space:nowrap;
-    }
-    .ixion-word{
-      display:inline-flex;
-      gap: 10px; /* spacing between I X I O N */
-      letter-spacing: 4px; /* extra spacing feel */
-      font-size: .75rem;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.9);
-    }
-    .ixion-letter{ font-weight: 400; }
-    .ixion-letter.red{ color: var(--ixion-red); }
-    .ixion-digital{
-      font-size: .72rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.45);
-      font-weight: 400;
-    }
+    .ixion-red{ color:var(--accent); }
 
+    /* NAV */
     nav{
-      position: fixed;
-      top:0; left:0; right:0;
-      z-index: 50;
+      padding:20px 40px;
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(0,0,0,0.78);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      z-index:100;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding: 18px 40px;
+      border-bottom:1px solid rgba(255,255,255,0.06);
       box-sizing:border-box;
-      background: rgba(0,0,0,.45);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      gap:14px;
     }
+
     nav a{
       color:#fff;
       text-decoration:none;
-      font-size: .7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity:.9;
+      font-size:0.7rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      white-space:nowrap;
+      opacity:0.95;
     }
 
-    .hero{
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+    .ixion-brand{
+      display:inline-flex;
       align-items:center;
-      text-align:center;
-      padding: 120px 20px 70px 20px;
-      box-sizing:border-box;
+      white-space:nowrap;
+      text-transform:uppercase;
+      user-select:none;
+    }
+    .ixion-letter{
+      letter-spacing:0.34em;
+      font-weight:200;
+      color:#cfcfcf;
+      font-size:0.7rem;
+    }
+    .ixion-separator{ display:inline-block; width:0.65em; }
+    .ixion-digital{
+      letter-spacing:0.20em;
+      font-weight:200;
+      color:#777;
+      font-size:0.7rem;
     }
 
-    .status-tag{
-      font-size: .78rem;
-      letter-spacing: 4px;
-      color: var(--ixion-red);
-      text-transform: uppercase;
-      font-weight: 600;
-      opacity: .95;
-      margin-bottom: 18px;
+    /* HERO */
+    .hero{
+      position:relative;
+      z-index:2;
+      padding:140px 20px 54px 20px;
+      box-sizing:border-box;
+      text-align:center;
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+
+    .hero-inner{
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    .badge{
+      display:inline-block;
+      font-size:0.65rem;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:var(--accent);
+      border:1px solid rgba(178,34,34,0.7);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:600;
+      margin-bottom:18px;
     }
 
     h1{
       margin:0;
-      font-size: 4rem;
-      font-weight: 200;
-      letter-spacing: 16px;
-      text-transform: uppercase;
-      text-shadow: 0 0 50px rgba(0,0,0,.9);
+      font-size:3.1rem;
+      font-weight:200;
+      letter-spacing:12px;
+      text-transform:uppercase;
+      line-height:1.12;
+      text-shadow:0 0 40px rgba(255,255,255,0.18);
     }
-    .subtitle{
-      margin-top: 18px;
-      color: rgba(255,255,255,.62);
-      font-weight: 200;
-      font-size: .95rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
+
+    .sub{
+      margin-top:14px;
+      font-size:0.85rem;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      color:#666;
+    }
+
+    .lead{
+      margin:26px auto 0 auto;
+      max-width:860px;
+      color:#d6d6d6;
+      font-weight:200;
+      line-height:1.9;
+      font-size:1.02rem;
     }
 
     .hero-card{
-      margin-top: 40px;
-      max-width: 920px;
-      width: min(920px, 100%);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 34px;
+      margin:28px auto 0 auto;
+      max-width:980px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.07);
+      background:rgba(0,0,0,0.22);
+      padding:22px;
       box-sizing:border-box;
-    }
-    .hero-card p{
-      margin:0;
-      color: rgba(255,255,255,.82);
-      font-weight: 200;
-      font-size: 1.05rem;
-    }
-
-    .content{
-      position: relative;
-      z-index: 2;
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 20px 90px 20px;
-      box-sizing:border-box;
-    }
-
-    .section{
-      margin-top: 70px;
-    }
-
-    h2{
-      margin:0 0 16px 0;
-      font-weight: 400;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      border-bottom: 1px solid rgba(178,34,34,.45);
-      padding-bottom: 10px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 26px;
-    }
-
-    .box{
-      background: rgba(10,10,10,.55);
-      border: 1px solid var(--line);
-      padding: 28px;
-      box-sizing:border-box;
-    }
-    .box h3{
-      margin:0 0 10px 0;
-      font-size: .8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--ixion-red);
-      font-weight: 600;
-    }
-    .box p, .box ul{
-      margin:0;
-      color: rgba(255,255,255,.75);
-      font-weight: 200;
-      font-size: .95rem;
-    }
-    .box ul{ padding-left: 18px; }
-    .box li{ margin: 8px 0; color: rgba(255,255,255,.74); }
-
-    .quote{
-      margin: 26px 0 0 0;
-      padding: 18px 22px;
-      border-left: 2px solid var(--ixion-red);
-      color: rgba(255,255,255,.70);
-      font-weight: 200;
-      font-style: italic;
-      background: rgba(0,0,0,.25);
+      text-align:left;
     }
 
     .pill-row{
+      margin-top:14px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top: 18px;
     }
+
     .pill{
-      border: 1px solid rgba(255,255,255,.16);
-      color: rgba(255,255,255,.75);
+      border:1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.78);
       font-size: .72rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       padding: 8px 12px;
       background: rgba(0,0,0,.25);
       font-weight: 400;
+      border-radius:999px;
     }
 
-    .foot{
-      position: relative;
-      z-index: 2;
-      padding: 80px 20px;
+    /* CONTENT */
+    .container{
+      position:relative;
+      z-index:2;
+      max-width:980px;
+      margin:0 auto;
+      padding:54px 20px 84px 20px;
+      box-sizing:border-box;
+    }
+
+    .section{
+      margin-top:44px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:var(--panel);
+      padding:28px;
+      box-sizing:border-box;
+    }
+
+    .section-title{
+      margin:0;
+      font-weight:400;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      font-size:1.05rem;
+      color:#f0f0f0;
+      border-bottom:1px solid rgba(255,255,255,0.07);
+      padding-bottom:10px;
+    }
+
+    .section p{
+      margin:16px 0 0 0;
+      color:#cfcfcf;
+      font-weight:200;
+      line-height:1.85;
+    }
+
+    .two-col{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .card{
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:12px;
+      background:var(--panel2);
+      padding:16px;
+      box-sizing:border-box;
+    }
+
+    .card h3{
+      margin:0 0 6px 0;
+      font-size:0.8rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--accent);
+      font-weight:600;
+    }
+
+    .card p, .card ul{
+      margin:0;
+      color:#c9c9c9;
+      font-weight:200;
+      font-size:0.95rem;
+      line-height:1.65;
+    }
+    .card ul{ padding-left:18px; }
+    .card li{ margin:8px 0; }
+
+    /* FOOTER */
+    .footer{
+      position:relative;
+      z-index:2;
+      background:#050505;
+      border-top:1px solid var(--border);
+      padding:56px 20px 46px 20px;
+      box-sizing:border-box;
+    }
+
+    .footer-inner{
+      max-width:980px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
       text-align:center;
-      background: rgba(0,0,0,.75);
-      border-top: 1px solid rgba(255,255,255,.06);
+      gap:18px;
     }
-    .foot p{
-      margin: 0 auto 18px auto;
-      max-width: 700px;
-      color: rgba(255,255,255,.62);
-      font-weight: 200;
-      font-size: .95rem;
+
+    .footer-text{
+      max-width:720px;
+      font-size:0.92rem;
+      color:#cfcfcf;
+      line-height:1.8;
+      font-weight:200;
+      margin:0;
     }
+
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:center;
+      font-size:0.75rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+
+    .footer-links a{
+      color:#9a9a9a;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      padding-bottom:2px;
+    }
+    .footer-links a:hover{ border-bottom-color:rgba(255,255,255,0.35); }
+
+    .footer-divider{
+      width:140px;
+      height:1px;
+      background:rgba(255,255,255,0.06);
+      margin-top:6px;
+    }
+
     .copyright{
-      font-size: .72rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.30);
+      font-size:0.7rem;
+      color:#444;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin:0;
     }
 
-    .ixion-red{ color: var(--ixion-red); }
+    @media (max-width:768px){
+      nav{ padding:14px 16px; }
 
-    @media (max-width: 768px){
-      nav{ padding: 14px 18px; }
-      h1{ font-size: 2.2rem; letter-spacing: 9px; }
-      .subtitle{ font-size: .72rem; letter-spacing: 3px; }
-      .hero{ padding-top: 100px; }
-      .hero-card{ padding: 24px; }
-      .grid{ grid-template-columns: 1fr; gap: 14px; }
-      .box{ padding: 22px; }
-      .ixion-word{ gap: 8px; letter-spacing: 3px; }
-      .ixion-brand{ gap: 14px; }
+      .ixion-letter{ letter-spacing:0.28em; font-size:0.65rem; }
+      .ixion-separator{ width:0.55em; }
+      .ixion-digital{ letter-spacing:0.18em; font-size:0.65rem; }
+
+      .hero{ padding-top:112px; padding-left:16px; padding-right:16px; padding-bottom:44px; }
+      h1{ font-size:1.95rem; letter-spacing:6px; }
+      .sub{ font-size:0.72rem; letter-spacing:3px; }
+      .lead{ text-align:left; font-size:0.98rem; }
+      .hero-card{ padding:18px; text-align:left; }
+
+      .container{ padding-left:16px; padding-right:16px; padding-top:42px; }
+      .section{ padding:20px; }
+      .two-col{ grid-template-columns:1fr; }
+
+      .footer{ padding:42px 18px 38px 18px; }
+    }
+
+    @media (max-width:420px){
+      .ixion-brand{ display:none; }
+      h1{ font-size:1.7rem; letter-spacing:5px; }
     }
   </style>
 </head>
@@ -281,125 +358,114 @@
   <nav>
     <a href="index.html">← Terug naar Home</a>
 
-    <span class="ixion-brand" aria-label="IXION DIGITAL">
-      <span class="ixion-word">
-        <span class="ixion-letter">I</span>
-        <span class="ixion-letter">X</span>
-        <span class="ixion-letter red">I</span>
-        <span class="ixion-letter">O</span>
-        <span class="ixion-letter">N</span>
-      </span>
+    <span class="ixion-brand" aria-label="I X I O N  D I G I T A L">
+      <span class="ixion-letter">I</span>
+      <span class="ixion-letter">X</span>
+      <span class="ixion-letter ixion-red">I</span>
+      <span class="ixion-letter">O</span>
+      <span class="ixion-letter">N</span>
+      <span class="ixion-separator"></span>
       <span class="ixion-digital">D I G I T A L</span>
     </span>
   </nav>
 
-  <section class="hero">
-    <div class="status-tag">CONCEPT • TOEKOMSTPLAN</div>
-    <h1>VAULT<span class="ixion-red">.</span></h1>
-    <div class="subtitle">LOCAL PRIVACY STORAGE • ZERO CLOUD</div>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="badge">FUTURE CONCEPT</div>
+      <h1>VAULT<span class="ixion-red">.</span></h1>
+      <div class="sub">LOCAL PRIVACY STORAGE</div>
 
-    <div class="hero-card">
-      <p>
-        De <span class="ixion-red">IXION</span> Vault is een stille, lokale opslagkluis voor mensen die hun data
-        thuis willen houden, zonder abonnementen, zonder accounts en zonder “NAS-hobby”.
-        Eén functie. Eén doel: <span class="ixion-red">rust en controle</span>.
+      <p class="lead">
+        Vault is een toekomstconcept voor lokale opslag onder eigen beheer.
+        Het idee is simpel: een rustige digitale kluis, zonder cloud en zonder gedoe.
       </p>
 
-      <div class="pill-row" aria-label="Kernprincipes">
-        <span class="pill">Geen cloud</span>
-        <span class="pill">Geen abonnement</span>
-        <span class="pill">Geen accounts</span>
-        <span class="pill">Appliance-achtig</span>
-        <span class="pill">Stil & stabiel</span>
-      </div>
-
-      <p class="quote">“Het staat er gewoon. En het doet niets verkeerd.”</p>
-    </div>
-  </section>
-
-  <main class="content">
-    <section class="section" id="wat-is-het">
-      <h2>Wat is de Vault</h2>
-      <div class="grid">
-        <div class="box">
-          <h3>Wat het wél is</h3>
-          <ul>
-            <li>Een lokale opslagkluis voor uw bestanden en back-ups</li>
-            <li>Gericht op rust, privacy en voorspelbaarheid</li>
-            <li>Ontworpen om 24/7 betrouwbaar te draaien</li>
-            <li>Een eenvoudig systeem zonder onnodige functies</li>
-          </ul>
+      <div class="hero-card" aria-label="Kernpunten">
+        <div class="pill-row">
+          <span class="pill">Geen cloud</span>
+          <span class="pill">Geen abonnement</span>
+          <span class="pill">Geen accounts</span>
+          <span class="pill">Eenvoudig gebruik</span>
+          <span class="pill">Stil en stabiel</span>
         </div>
-        <div class="box">
-          <h3>Wat het níet is</h3>
-          <ul>
-            <li>Geen cloud-dienst en geen abonnement</li>
-            <li>Geen Plex / Kodi / download-platform</li>
-            <li>Geen app-winkel, geen accounts, geen “ecosysteem”</li>
-            <li>Geen hobby-NAS met eindeloze instellingen</li>
-          </ul>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="waarom">
-      <h2>Waarom dit bestaat</h2>
-      <div class="box">
-        <p>
-          Veel opslagoplossingen worden complex, luid of afhankelijk van externe diensten.
-          De Vault is het tegenovergestelde: minimale bewegende delen, minimale frictie,
-          maximale voorspelbaarheid. Geen drukte, alleen een rustige plek voor uw data.
+        <p style="margin:14px 0 0 0; color:#cfcfcf; font-weight:200; line-height:1.85;">
+          Dit is een richting, geen belofte. Vault wordt pas vastgezet als de referentie build klaar is
+          en de stabiliteit aantoonbaar klopt.
         </p>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section class="section" id="positie">
-      <h2>Positionering</h2>
-      <div class="grid">
-        <div class="box">
-          <h3>Voor wie</h3>
-          <ul>
-            <li>Mensen die hun data lokaal willen bewaren</li>
-            <li>Huishoudens die een stille “digitale kluis” zoeken</li>
-            <li>Gebruikers die eenvoud boven features verkiezen</li>
-            <li>Iedereen die geen cloud of accounts wil</li>
-          </ul>
+  <main class="container">
+    <section class="section">
+      <h2 class="section-title">Wat Vault wel is</h2>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Rustige opslag</h3>
+          <p>Een lokale plek voor bestanden en backups, bedoeld om jarenlang te blijven werken.</p>
         </div>
-        <div class="box">
-          <h3>Richtprijs</h3>
-          <p>
-            Doel: <span class="ixion-red">€... – €...</span> (conceptrange).<br/>
-            Onder €400 doet af aan de bouwkwaliteit en intentie.<br/>
-            Boven €750 is in deze fase niet realistisch.
-          </p>
-          <p style="margin-top:14px; color: rgba(255,255,255,.55); font-weight:200;">
-            Dit is een toekomstplan: de Vault wordt pas vastgezet als de referentiebuild gereed is.
-          </p>
+        <div class="card">
+          <h3>Onder eigen beheer</h3>
+          <p>Geen cloud afhankelijkheid voor normaal gebruik. Je data blijft thuis.</p>
+        </div>
+        <div class="card">
+          <h3>Voorspelbaar gedrag</h3>
+          <p>Geen eindeloze keuzes. Het systeem moet simpel blijven en rustig aanvoelen.</p>
+        </div>
+        <div class="card">
+          <h3>Gemaakt voor 24 7</h3>
+          <p>Ontworpen om altijd aan te kunnen staan, zonder dat het aandacht vraagt.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="roadmap">
-      <h2>Roadmap (concept)</h2>
-      <div class="box">
-        <ul>
-          <li><span class="ixion-red">Vault v1</span>: referentiebuild, minimale softwarelaag, focus op betrouwbaarheid</li>
-          <li>Batchdenken: leverbaarheid bepaalt ritme, niet hype</li>
-          <li>Documentatie: korte, rustige uitleg, geen “tech handleiding”</li>
-          <li>Validatie: stilte, stabiliteit, herstartgedrag en data-integriteit</li>
-        </ul>
+    <section class="section">
+      <h2 class="section-title">Wat Vault niet is</h2>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Geen mediaserver project</h3>
+          <p>Geen platform voor downloads, plugins of een grote verzameling extra diensten.</p>
+        </div>
+        <div class="card">
+          <h3>Geen hobby nas</h3>
+          <p>Geen stapels menu’s of instellingen. Het doel is rust, niet experiment.</p>
+        </div>
       </div>
+
+      <p style="margin-top:16px;">
+        Vault blijft bewust klein in rol en gedrag. Dat is precies de waarde.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Voor wie</h2>
+      <p>
+        Voor mensen die hun data lokaal willen houden en geen zin hebben in abonnementen,
+        accounts of systemen die steeds veranderen. Vault is bedoeld als rustig bezit.
+      </p>
     </section>
   </main>
 
-  <footer class="foot">
-    <p>
-      <span class="ixion-red">IXION Vault</span> is een conceptlijn binnen onze labs.  
-      Geen beloftes, geen hype, alleen een richting: stille, betrouwbare producten die doen wat ze moeten doen.
-    </p>
-    <div class="copyright">© 2026 IXION DIGITAL | TRANSMISSION PENDING</div>
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-text">
+        Vernoemd naar de rode dwergplaneet <span class="ixion-red" style="font-weight:400;">28978 Ixion</span>.
+        Technologie, ontworpen om te verdwijnen, zodat rust en kwaliteit overblijven.
+      </p>
+
+      <div class="footer-links">
+        <a href="aether.html">Aether</a>
+        <a href="shield.html">Shield</a>
+        <a href="vault.html">Vault</a>
+        <a href="remote-access.html">Remote Access</a>
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="copyright">© 2026 I X I O N  D I G I T A L | TRANSMISSION PENDING</p>
+    </div>
   </footer>
 </body>
 </html>
-
-
